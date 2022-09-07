@@ -3,8 +3,22 @@ package edu.unca.csci333;
 import java.util.Arrays;
 import java.util.Random;
 
+//Taylor Van Aken
+//8/26/2022
+//Homework 3
+
+/**
+ * Implementation of quicksort on integer arrays
+ * @author Taylor Van Aken
+ */
 public class quicksort {
 	
+	/**
+	 * Swaps two indexes of an array
+	 * @param arr the array being passed in
+	 * @param i index being swapped with j
+	 * @param j index being swapped with i
+	 */
 	private static void swap(int[] arr, int i, int j) {
 		
 		int temp = arr[i];
@@ -12,6 +26,13 @@ public class quicksort {
 		arr[j] = temp;
 	}
 
+	/**
+	 * Chooses a pivot index and swaps integers lower than pivot to the front of array
+	 * @param arr the array being passed in
+	 * @param start start index of array
+	 * @param end end index of array
+	 * @return pivot index going to be used as a partition in array
+	 */
 	private static int partition (int[] arr, int start, int end) {
 		
 		int piv = arr[end];
@@ -30,6 +51,12 @@ public class quicksort {
 		return i+1;
 	}
 	
+	/**
+	 * Used to sort given array of integers
+	 * @param arr array being passed in
+	 * @param start start index of section being passed in
+	 * @param end end index of section being passed in
+	 */
 	public static void quicksort(int[] arr, int start, int end) {
 		
 		if (start < end) {
@@ -40,13 +67,19 @@ public class quicksort {
 		}
 	}
 	
+	/**
+	 * Used to sort given array of integers using a random pivot index
+	 * @param arr array being passed in
+	 * @param start start index of section being passed in
+	 * @param end end index of section being passed in
+	 */
 	public static void randomizedQuicksort(int[] arr, int start, int end) {
 		
 		if (start < end) {
 			
 			Random rand = new Random();
 			
-			int z = rand.nextInt(end + 1);
+			int z = rand.nextInt(end - start) + start;
 			swap(arr, end, z);
 			int q = partition(arr, start, end);
 			randomizedQuicksort(arr, start, q - 1);
@@ -54,6 +87,10 @@ public class quicksort {
 		}
 	}
 	
+	/**
+	 * Test main
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		int[] arr1 = {35,2,18,7,16,45,95};
@@ -61,6 +98,7 @@ public class quicksort {
 		int[] arr3 = {1,1,2,3,4,5,6,7,3,4};
 		int[] arr4 = {1,9,2,8,3,7,4,6,5};
 		int[] arr5 = {10,9,8,7,6,5,4,3,2,1};
+		
 		int[] arr6 = {35,2,18,7,16,45,95};
 		int[] arr7 = {4,6,2,76,12,6,8,6,5,6,90};
 		int[] arr8 = {1,1,2,3,4,5,6,7,3,4};
