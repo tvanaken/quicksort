@@ -11,7 +11,7 @@ import java.util.Random;
  * Implementation of quicksort on integer arrays
  * @author Taylor Van Aken
  */
-public class quicksort {
+public class Quicksort {
 	
 	/**
 	 * Swaps two indexes of an array
@@ -135,3 +135,4 @@ public class quicksort {
 	}
 
 }
+
